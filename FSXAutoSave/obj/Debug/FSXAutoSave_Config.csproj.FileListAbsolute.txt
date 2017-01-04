@@ -1,0 +1,10 @@
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\bin\Debug\FSXAutoSave.exe.config
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\obj\Debug\FSXAutoSave.exe
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\obj\Debug\FSXAutoSave.pdb
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\bin\Debug\FSXAutoSave.exe
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\bin\Debug\FSXAutoSave.pdb
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\bin\Debug\Microsoft.FlightSimulator.SimConnect.dll
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\obj\Debug\FSXAutoSave_Config.csprojResolveAssemblyReference.cache
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\obj\Debug\FSXAutoSave.Form1.resources
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\obj\Debug\FSXAutoSave.Properties.Resources.resources
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\obj\Debug\FSXAutoSave_Config.csproj.GenerateResource.Cache
