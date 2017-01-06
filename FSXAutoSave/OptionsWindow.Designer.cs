@@ -34,6 +34,7 @@
             this.selectorSaveInterval = new System.Windows.Forms.NumericUpDown();
             this.checkBoxSaveWhilePaused = new System.Windows.Forms.CheckBox();
             this.buttonSaveSettings = new System.Windows.Forms.Button();
+            this.checkBoxAutosaveEnabledWhenFSXStarts = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.selectorMaxNumSavesToKeep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectorSaveInterval)).BeginInit();
             this.SuspendLayout();
@@ -115,7 +116,7 @@
             // 
             // buttonSaveSettings
             // 
-            this.buttonSaveSettings.Location = new System.Drawing.Point(77, 83);
+            this.buttonSaveSettings.Location = new System.Drawing.Point(75, 106);
             this.buttonSaveSettings.Name = "buttonSaveSettings";
             this.buttonSaveSettings.Size = new System.Drawing.Size(100, 23);
             this.buttonSaveSettings.TabIndex = 5;
@@ -123,11 +124,23 @@
             this.buttonSaveSettings.UseVisualStyleBackColor = true;
             this.buttonSaveSettings.Click += new System.EventHandler(this.buttonSaveSettings_Click);
             // 
+            // checkBoxAutosaveEnabledWhenFSXStarts
+            // 
+            this.checkBoxAutosaveEnabledWhenFSXStarts.AutoSize = true;
+            this.checkBoxAutosaveEnabledWhenFSXStarts.Location = new System.Drawing.Point(15, 83);
+            this.checkBoxAutosaveEnabledWhenFSXStarts.Name = "checkBoxAutosaveEnabledWhenFSXStarts";
+            this.checkBoxAutosaveEnabledWhenFSXStarts.Size = new System.Drawing.Size(216, 17);
+            this.checkBoxAutosaveEnabledWhenFSXStarts.TabIndex = 6;
+            this.checkBoxAutosaveEnabledWhenFSXStarts.Text = "Autosave auto-enabled when FSX starts";
+            this.checkBoxAutosaveEnabledWhenFSXStarts.UseVisualStyleBackColor = true;
+            this.checkBoxAutosaveEnabledWhenFSXStarts.CheckedChanged += new System.EventHandler(this.checkBoxAutosaveEnabledWhenFSXStarts_CheckedChanged);
+            // 
             // OptionsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 116);
+            this.ClientSize = new System.Drawing.Size(256, 144);
+            this.Controls.Add(this.checkBoxAutosaveEnabledWhenFSXStarts);
             this.Controls.Add(this.buttonSaveSettings);
             this.Controls.Add(this.checkBoxSaveWhilePaused);
             this.Controls.Add(this.selectorSaveInterval);
@@ -155,5 +168,6 @@
         private System.Windows.Forms.NumericUpDown selectorSaveInterval;
         private System.Windows.Forms.CheckBox checkBoxSaveWhilePaused;
         private System.Windows.Forms.Button buttonSaveSettings;
+        private System.Windows.Forms.CheckBox checkBoxAutosaveEnabledWhenFSXStarts;
     }
 }

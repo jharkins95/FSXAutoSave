@@ -8,6 +8,10 @@ using Microsoft.FlightSimulator.SimConnect;
 using System.Runtime.InteropServices;
 using System.Timers;
 using System.Windows.Forms;
+using System.IO;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
 
 namespace FSXAutoSave
 {
@@ -27,12 +31,15 @@ namespace FSXAutoSave
 
         private int saveInterval; // seconds
         private const string FILENAME_BASE = "FSXAutoSave_";
+        private string autoSavedFlightsPath = "C:\\Users\\jthem\\Documents\\Flight Simulator X Files\\FSXAutoSave\\";
         private int maxNumSavesToKeep;
 
         private bool simRunning = false;
         private bool simPaused = false;
-        private bool saveEnabled = false;
+
+        private bool saveEnabled;
         private bool canSaveWhilePaused;
+        private bool autoSaveOnFSXStart;
         private System.Timers.Timer saveTimer;
 
         private SimConnectDummyWindow dummyWindow;
@@ -53,10 +60,11 @@ namespace FSXAutoSave
             fsx.MenuAddSubItem(EVENTS.EVENT_MENU, "Options", EVENTS.EVENT_MENU_OPTIONS, 0);
         }
 
-        public void resetSaveTimer(int interval)
+        public void resetSaveTimer()
         {
             saveTimer.Stop();
-            saveTimer.Interval = interval;
+            saveTimer.Interval = 1000 * 60 * saveInterval;
+            //saveTimer.Interval = 1000 * saveInterval;
             saveTimer.Start();
         }
 
@@ -65,8 +73,11 @@ namespace FSXAutoSave
             saveInterval = Properties.Settings.Default.SaveInterval;
             maxNumSavesToKeep = Properties.Settings.Default.MaxNumSaves;
             canSaveWhilePaused = Properties.Settings.Default.SaveWhilePaused;
+            autoSaveOnFSXStart = Properties.Settings.Default.SaveEnabledOnStart;
 
-            resetSaveTimer(1000 * 60 * saveInterval);
+            saveEnabled = autoSaveOnFSXStart;
+
+            resetSaveTimer();
             optionsWindow.loadSettings();
             Console.WriteLine("Settings loaded.");
             printSettings();
@@ -85,6 +96,8 @@ namespace FSXAutoSave
             Properties.Settings.Default.SaveInterval = saveInterval;
             Properties.Settings.Default.MaxNumSaves = maxNumSavesToKeep;
             Properties.Settings.Default.SaveWhilePaused = canSaveWhilePaused;
+            Properties.Settings.Default.SaveEnabledOnStart = autoSaveOnFSXStart;
+
             Properties.Settings.Default.Save();
             Console.WriteLine("Settings saved.");
             printSettings();
@@ -190,8 +203,23 @@ namespace FSXAutoSave
                     // Filter slashes, colons, and spaces
                     currentTime = currentTime.Replace('/', '_').Replace(':', '_').Replace(' ', '_');
 
+                    // Get files in directory and delete least recent one if number of files exceeds capacity
+                    var fileArr = Directory.GetFiles(autoSavedFlightsPath);
+                    Array.Sort(fileArr);
+                    /*
+                    var autoSavedFlights = new LinkedList<string>(fileArr);
+                    while (autoSavedFlights.Count >= maxNumSavesToKeep)
+                    {
+                        string removedFlight = autoSavedFlights.Re;
+                        autoSavedFlights.RemoveFirst();
+                        Directory.Delete(removedFlight, true);
+                    }
+                    */
+
                     #if !DEBUG
-                        fsx.FlightSave(FILENAME_BASE + currentTime, null, "FSXAutoSave autosaved flight", 0);
+                        string fullPath = "FSXAutoSave\\" + FILENAME_BASE + currentTime;
+                        Console.WriteLine("Full path: " + fullPath);
+                        fsx.FlightSave(fullPath, null, "FSXAutoSave autosaved flight", 0);
                     #endif
                     Console.WriteLine("Game saved: " + currentTime);
                 }
@@ -233,7 +261,7 @@ namespace FSXAutoSave
         public void setSaveInterval(int minutes)
         {
             saveInterval = minutes; // seconds for now...
-            resetSaveTimer(1000 * 60 * saveInterval);
+            resetSaveTimer();
             Console.WriteLine("Save interval changed to " + minutes + " seconds.");
         }
 
@@ -242,6 +270,16 @@ namespace FSXAutoSave
             maxNumSavesToKeep = numSavesToKeep;
             Console.WriteLine("Max. number of saves changed to " + maxNumSavesToKeep);
         }
-        
+
+        public void enableAutoSaveOnFSXStart()
+        {
+            autoSaveOnFSXStart = true;
+        }
+
+        public void disableAutoSaveOnFSXStart()
+        {
+            autoSaveOnFSXStart = false;
+        }
+
     }
 }

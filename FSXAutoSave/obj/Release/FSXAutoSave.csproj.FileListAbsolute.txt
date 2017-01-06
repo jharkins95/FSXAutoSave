@@ -9,8 +9,6 @@ C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Con
 C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\obj\Release\FSXAutoSave.exe
 C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave_Config\obj\Release\FSXAutoSave.pdb
 C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\bin\Release\FSXAutoSave.exe.config
-C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\obj\Release\FSXAutoSave.exe
-C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\obj\Release\FSXAutoSave.pdb
 C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\bin\Release\FSXAutoSave.exe
 C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\bin\Release\FSXAutoSave.pdb
 C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\bin\Release\Microsoft.FlightSimulator.SimConnect.dll
@@ -18,3 +16,5 @@ C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\obj
 C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\obj\Release\FSXAutoSave.OptionsWindow.resources
 C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\obj\Release\FSXAutoSave.Properties.Resources.resources
 C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\obj\Release\FSXAutoSave.csproj.GenerateResource.Cache
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\obj\Release\FSXAutoSave.exe
+C:\Users\jthem\Documents\Visual Studio 2015\Projects\FSXAutoSave\FSXAutoSave\obj\Release\FSXAutoSave.pdb

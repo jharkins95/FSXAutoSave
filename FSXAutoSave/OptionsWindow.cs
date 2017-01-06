@@ -53,11 +53,24 @@ namespace FSXAutoSave
             selectorSaveInterval.Value = Properties.Settings.Default.SaveInterval;
             selectorMaxNumSavesToKeep.Value = Properties.Settings.Default.MaxNumSaves;
             checkBoxSaveWhilePaused.Checked = Properties.Settings.Default.SaveWhilePaused;
+            checkBoxAutosaveEnabledWhenFSXStarts.Checked = Properties.Settings.Default.SaveEnabledOnStart;
         }
 
         private void buttonSaveSettings_Click(object sender, EventArgs e)
         {
             fsx.saveSettings();
+        }
+
+        private void checkBoxAutosaveEnabledWhenFSXStarts_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxSaveWhilePaused.Checked)
+            {
+                fsx.enableAutoSaveOnFSXStart();
+            }
+            else
+            {
+                fsx.disableAutoSaveOnFSXStart();
+            }
         }
     }
 }

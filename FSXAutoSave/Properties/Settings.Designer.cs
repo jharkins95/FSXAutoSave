@@ -66,5 +66,17 @@ namespace FSXAutoSave.Properties {
                 this["SaveWhilePaused"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SaveEnabledOnStart {
+            get {
+                return ((bool)(this["SaveEnabledOnStart"]));
+            }
+            set {
+                this["SaveEnabledOnStart"] = value;
+            }
+        }
     }
 }

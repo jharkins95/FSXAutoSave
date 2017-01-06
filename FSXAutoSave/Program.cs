@@ -18,15 +18,17 @@ namespace FSXAutoSave
         [STAThread]
         public static void Main(string[] args)
         {
-            // Check if program was started by user or FSX
-            if (args.Length != 1 || args[0] != "-f")
-            {
-                MessageBox.Show("You have started FSXAutoSave outside of FSX (i.e. by double-clicking the "
-                    + "executable file). Please be aware that running multiple instances of FSXAutoSave may "
-                    + "result in strange behavior. The application will now close, but you may override this "
-                    + "functionality by running FSXAutoSave with the -f command-line flag.");
-                Environment.Exit(1);
-            }
+            #if !DEBUG
+                // Check if program was started by user or FSX
+                if (args.Length != 1 || args[0] != "-f")
+                {
+                    MessageBox.Show("You have started FSXAutoSave outside of FSX (i.e. by double-clicking the "
+                        + "executable file). Please be aware that running multiple instances of FSXAutoSave may "
+                        + "result in strange behavior. The application will now close, but you may override this "
+                        + "functionality by running FSXAutoSave with the -f command-line flag.");
+                    Environment.Exit(1);
+                }
+            #endif
 
             // Setup debug console if in debug mode
             #if DEBUG
